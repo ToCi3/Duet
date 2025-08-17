@@ -11,7 +11,7 @@
     "predeploy": "npm run build",
     "deploy-cleanup": "git push origin --delete gh-pages || exit 0",
     "deploy": "npm run deploy-cleanup && npm run predeploy && npm run deploy-ghpages",
-    "deploy-ghpages": "gh-pages -d dist -r https://github.com/ToCi3/WebDuet.git"
+    "deploy-ghpages": "gh-pages -d dist -r https://github.com/ToCi3/Duet.git"
   },
   "dependencies": {
     "react": "^19.1.1",

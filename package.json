@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -b gh-pages -r https://github.com/ToCi3/DuetWeb.git"
+    "deploy": "gh-pages -d dist -f -r https://github.com/ToCi3/WebDuet.git"
   },
   "dependencies": {
     "react": "^19.1.1",

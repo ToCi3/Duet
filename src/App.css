@@ -1,0 +1,356 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  color: white;
+  background-color: #000;
+  scroll-behavior: smooth;
+}
+
+.App {
+  width: 100%;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 2rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  color: white; /* Domyślny kolor tekstu dla sekcji */
+}
+
+/* Nakładka dla lepszej czytelności tekstu */
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Ciemniejsza nakładka */
+  z-index: 0; /* Upewnij się, że nakładka jest pod treścią */
+}
+
+.section > div {
+  position: relative;
+  z-index: 1;
+}
+
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.section h1, .section h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.section p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 300;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Style dla przycisków CTA */
+.cta-button {
+  background-color: #ff4d6d; /* Czerwień z color-scheme.png */
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button:hover {
+  background-color: #e6395e; /* Nieco ciemniejsza czerwień */
+  transform: translateY(-2px);
+}
+
+.cta-button.primary {
+  background-color: #ff4d6d;
+}
+
+.cta-button.secondary {
+  background-color: #5ac8fa; /* Niebieski z color-scheme.png */
+  margin-left: 1rem; /* odstęp między przyciskami */
+}
+
+.cta-button.secondary:hover {
+  background-color: #43b0e2;
+}
+
+
+/* Sekcja Hero - Specyficzne style */
+.hero-section {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.hero-section::before {
+  background: rgba(0, 0, 0, 0.2); /* Lżejsza nakładka dla sekcji hero */
+}
+
+.hero-content {
+  flex: 1; /* Zajmuje dostępną przestrzeń */
+  text-align: left; /* Tekst wyrównany do lewej */
+  padding-left: 5vw; /* Odstęp od lewej krawędzi */
+}
+
+.app-logo-hero {
+  width: clamp(150px, 20vw, 250px); /* Responsywna szerokość logo */
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.hero-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 15vw; /* Odstęp od prawej krawędzi */
+}
+
+.app-mockup {
+  max-width: clamp(250px, 40vw, 400px); /* Responsywna szerokość makiety */
+  height: auto;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5)); /* Cień dla lepszego efektu */
+}
+
+/* Sekcja Funkcji */
+.features-section {
+  background-image: url('./assets/images/bg-3.png') !important; /* POPRAWIONE: Bezpośrednia ścieżka do bg3 */
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+  padding: 0 1rem;
+}
+
+.feature-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px); /* Lekki efekt uniesienia */
+}
+
+.feature-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3));
+}
+
+.feature-item h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.feature-item p {
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  font-weight: 200;
+}
+
+/* Nowe style dla sekcji "CAREER MANAGER" */
+.career-manager-section {
+  flex-direction: column; /* Nagłówek u góry, potem zawartość */
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem; /* Większy padding */
+}
+
+.career-manager-section .text-container {
+  max-width: 1200px; /* Większa szerokość dla całej sekcji */
+  width: 100%;
+}
+
+.career-manager-content {
+  display: flex;
+  flex-direction: row; /* Trzy kolumny obok siebie */
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-top: 3rem; /* Odstęp od nagłówka */
+  gap: 2rem; /* Odstęp między kolumnami */
+}
+
+.app-manager-image {
+  width: clamp(150px, 20vw, 250px); /* Zmniejszone wartości - dopasuj według potrzeb */
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+}
+
+.text-block {
+  flex: 1; /* Pozwala blokom tekstowym zająć dostępną przestrzeń */
+  max-width: 350px; /* Maksymalna szerokość bloku tekstowego */
+  text-align: left; /* Tekst wyrównany do lewej w blokach */
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.text-block h3 {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.text-block p {
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  font-weight: 200;
+  line-height: 1.7;
+}
+
+/* Media Queries dla responsywności */
+@media (max-width: 992px) {
+  .career-manager-content {
+    flex-direction: column; /* Ułożenie w kolumny na tabletach */
+    align-items: center;
+  }
+
+  .text-block {
+    max-width: 600px; /* Zwiększamy szerokość na tabletach */
+    text-align: center; /* Wyśrodkuj tekst */
+  }
+
+  .app-manager-image {
+    margin: 2rem 0; /* Odstęp między tekstem a obrazkiem */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column; /* Stosy na małych ekranach */
+    justify-content: space-around;
+    padding: 2rem 1rem;
+  }
+
+  .hero-content {
+    text-align: center;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+
+  .hero-image-container {
+    padding: 0;
+    justify-content: center;
+  }
+
+  .cta-button.secondary {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr; /* Jedna kolumna na bardzo małych ekranach */
+  }
+
+  .career-manager-section .text-container {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section h1, .section h2 {
+    font-size: 2rem;
+  }
+
+  .section p {
+    font-size: 0.9rem;
+  }
+
+  .cta-button {
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .text-block h3 {
+    font-size: 1.4rem;
+  }
+
+  .text-block p {
+    font-size: 0.85rem;
+  }
+}
+
+.team-section {
+  flex-direction: column; /* Nagłówek i obrazek pod spodem */
+  padding: 4rem 2rem; /* Odstępy */
+  background-color: #000; /* Domyślne czarne tło, jeśli bg1 nie jest wystarczające */
+}
+
+.team-section .text-container {
+  max-width: 1000px; /* Może być szerszy, aby pomieścić obrazek */
+}
+
+.team-section h2 {
+  margin-bottom: 3rem; /* Odstęp od obrazka */
+}
+
+.team-image {
+  max-width: 90%; /* Zapewnia responsywność, nie wychodzi poza kontener */
+  height: auto;
+  display: block; /* Usuwa dodatkowe marginesy */
+  margin: 0 auto; /* Centruje obrazek */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Lekki cień, aby się wyróżniał */
+  border-radius: 10px; /* Subtelne zaokrąglenie rogów */
+}
+
+/* Media Queries dla responsywności - adaptacja dla sekcji zespołu */
+@media (max-width: 768px) {
+  .team-image {
+    max-width: 100%; /* Pełna szerokość na mniejszych ekranach */
+  }
+}

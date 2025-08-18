@@ -20,7 +20,7 @@ body {
 
 .section {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh; /* KLUCZOWA ZMIANA: Z height na min-height */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,7 +30,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
-  overflow: hidden;
+  overflow: hidden; /* Może być usunięte, jeśli chcesz pozwolić na przewijanie zawartości poza sekcję, ale lepiej kontrolować overflow wewnątrz kontenerów */
   color: white; /* Domyślny kolor tekstu dla sekcji */
 }
 
@@ -50,7 +50,6 @@ body {
   position: relative;
   z-index: 1;
 }
-
 
 .text-container {
   display: flex;
@@ -114,13 +113,14 @@ body {
   background-color: #43b0e2;
 }
 
-
 /* Sekcja Hero - Specyficzne style */
 .hero-section {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 0;
+  box-sizing: border-box;
+  padding: 0 2rem;
+  gap: 5rem; /* Odstęp między tekstem a obrazkiem na desktopie */
 }
 
 .hero-section::before {
@@ -128,13 +128,14 @@ body {
 }
 
 .hero-content {
-  flex: 1; /* Zajmuje dostępną przestrzeń */
-  text-align: left; /* Tekst wyrównany do lewej */
-  padding-left: 5vw; /* Odstęp od lewej krawędzi */
+  flex: 1;
+  text-align: left;
+  padding-left: 5vw;
+  margin-bottom: 0; /* Upewnij się, że nie ma dodatkowych marginesów kolidujących z gap */
 }
 
 .app-logo-hero {
-  width: clamp(150px, 20vw, 250px); /* Responsywna szerokość logo */
+  width: clamp(150px, 20vw, 250px);
   height: auto;
   margin-bottom: 1rem;
 }
@@ -144,18 +145,18 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-right: 10vw; /* Odstęp od prawej krawędzi */
+  padding-right: 10vw;
 }
 
 .app-mockup {
-  max-width: clamp(250px, 40vw, 400px); /* Responsywna szerokość makiety */
+  max-width: clamp(250px, 40vw, 400px);
   height: auto;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5)); /* Cień dla lepszego efektu */
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
 }
 
 /* Sekcja Funkcji */
 .features-section {
-  background-image: url('./assets/images/bg-3.png') !important; /* POPRAWIONE: Bezpośrednia ścieżka do bg3 */
+  background-image: url('./assets/images/bg-3.png') !important;
 }
 
 .features-grid {
@@ -179,7 +180,7 @@ body {
 }
 
 .feature-item:hover {
-  transform: translateY(-5px); /* Lekki efekt uniesienia */
+  transform: translateY(-5px);
 }
 
 .feature-icon {
@@ -203,38 +204,39 @@ body {
 
 /* Nowe style dla sekcji "CAREER MANAGER" */
 .career-manager-section {
-  flex-direction: column; /* Nagłówek u góry, potem zawartość */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 4rem 2rem; /* Większy padding */
+  padding: 4rem 2rem;
 }
 
 .career-manager-section .text-container {
-  max-width: 1200px; /* Większa szerokość dla całej sekcji */
+  max-width: 1200px;
   width: 100%;
 }
 
 .career-manager-content {
   display: flex;
-  flex-direction: row; /* Trzy kolumny obok siebie */
+  flex-direction: row;
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  margin-top: 3rem; /* Odstęp od nagłówka */
-  gap: 2rem; /* Odstęp między kolumnami */
+  margin-top: 3rem;
+  gap: 2rem;
 }
 
 .app-manager-image {
-  width: clamp(150px, 20vw, 250px); /* Zmniejszone wartości - dopasuj według potrzeb */
+  width: clamp(150px, 20vw, 250px);
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+  margin: 0; /* Usunięto margin, aby gap kontrolował odstępy */
 }
 
 .text-block {
-  flex: 1; /* Pozwala blokom tekstowym zająć dostępną przestrzeń */
-  max-width: 350px; /* Maksymalna szerokość bloku tekstowego */
-  text-align: left; /* Tekst wyrównany do lewej w blokach */
+  flex: 1;
+  max-width: 350px;
+  text-align: left;
   padding: 1rem;
   box-sizing: border-box;
 }
@@ -253,34 +255,61 @@ body {
   line-height: 1.7;
 }
 
+/* Sekcja zespołu */
+.team-section {
+  flex-direction: column;
+  padding: 4rem 2rem;
+  background-color: #000;
+  gap: 3rem;
+  align-items: center;
+}
+
+.team-section .text-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.team-section h2 {
+  margin-bottom: 0; /* Usunięto margin-bottom, ponieważ gap to kontroluje */
+}
+
+.team-image {
+  max-width: 90%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
 /* Media Queries dla responsywności */
 @media (max-width: 992px) {
   .career-manager-content {
-    flex-direction: column; /* Ułożenie w kolumny na tabletach */
+    flex-direction: column;
     align-items: center;
+    gap: 2rem;
   }
 
   .text-block {
-    max-width: 600px; /* Zwiększamy szerokość na tabletach */
-    text-align: center; /* Wyśrodkuj tekst */
-  }
-
-  .app-manager-image {
-    margin: 2rem 0; /* Odstęp między tekstem a obrazkiem */
+    max-width: 600px;
+    text-align: center;
   }
 }
 
 @media (max-width: 768px) {
   .hero-section {
-    flex-direction: column; /* Stosy na małych ekranach */
+    flex-direction: column;
     justify-content: space-around;
     padding: 2rem 1rem;
+    gap: 2rem;
   }
 
   .hero-content {
     text-align: center;
     padding: 0;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; Jeśli ten margin wciąż powoduje problemy z ucinaniem na małych ekranach,
+       możesz go tutaj usunąć, polegając w pełni na gap z .hero-section. */
   }
 
   .hero-image-container {
@@ -295,10 +324,15 @@ body {
 
   .features-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .career-manager-section .text-container {
     padding: 1rem;
+  }
+
+  .team-image {
+    max-width: 100%;
   }
 }
 
@@ -322,35 +356,5 @@ body {
 
   .text-block p {
     font-size: 0.85rem;
-  }
-}
-
-.team-section {
-  flex-direction: column;
-  padding: 4rem 2rem;
-  background-color: #000;
-}
-
-.team-section .text-container {
-  max-width: 1000px;
-}
-
-.team-section h2 {
-  margin-bottom: 3rem;
-}
-
-.team-image {
-  max-width: 90%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-}
-
-
-@media (max-width: 768px) {
-  .team-image {
-    max-width: 100%;
   }
 }

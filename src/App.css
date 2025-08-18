@@ -144,7 +144,7 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-right: 15vw; /* Odstęp od prawej krawędzi */
+  padding-right: 10vw; /* Odstęp od prawej krawędzi */
 }
 
 .app-mockup {
@@ -294,7 +294,7 @@ body {
   }
 
   .features-grid {
-    grid-template-columns: 1fr; /* Jedna kolumna na bardzo małych ekranach */
+    grid-template-columns: 1fr;
   }
 
   .career-manager-section .text-container {
@@ -326,31 +326,31 @@ body {
 }
 
 .team-section {
-  flex-direction: column; /* Nagłówek i obrazek pod spodem */
-  padding: 4rem 2rem; /* Odstępy */
-  background-color: #000; /* Domyślne czarne tło, jeśli bg1 nie jest wystarczające */
+  flex-direction: column;
+  padding: 4rem 2rem;
+  background-color: #000;
 }
 
 .team-section .text-container {
-  max-width: 1000px; /* Może być szerszy, aby pomieścić obrazek */
+  max-width: 1000px;
 }
 
 .team-section h2 {
-  margin-bottom: 3rem; /* Odstęp od obrazka */
+  margin-bottom: 3rem;
 }
 
 .team-image {
-  max-width: 90%; /* Zapewnia responsywność, nie wychodzi poza kontener */
+  max-width: 90%;
   height: auto;
-  display: block; /* Usuwa dodatkowe marginesy */
-  margin: 0 auto; /* Centruje obrazek */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Lekki cień, aby się wyróżniał */
-  border-radius: 10px; /* Subtelne zaokrąglenie rogów */
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
 }
 
-/* Media Queries dla responsywności - adaptacja dla sekcji zespołu */
+
 @media (max-width: 768px) {
   .team-image {
-    max-width: 100%; /* Pełna szerokość na mniejszych ekranach */
+    max-width: 100%;
   }
 }

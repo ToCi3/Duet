@@ -20,7 +20,7 @@ body {
 
 .section {
   width: 100vw;
-  min-height: 100vh; /* KLUCZOWA ZMIANA: Z height na min-height */
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,11 +30,10 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
-  overflow: hidden; /* Może być usunięte, jeśli chcesz pozwolić na przewijanie zawartości poza sekcję, ale lepiej kontrolować overflow wewnątrz kontenerów */
-  color: white; /* Domyślny kolor tekstu dla sekcji */
+  overflow: hidden;
+  color: white;
 }
 
-/* Nakładka dla lepszej czytelności tekstu */
 .section::before {
   content: '';
   position: absolute;
@@ -42,8 +41,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Ciemniejsza nakładka */
-  z-index: 0; /* Upewnij się, że nakładka jest pod treścią */
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
 }
 
 .section > div {
@@ -78,9 +77,8 @@ body {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Style dla przycisków CTA */
 .cta-button {
-  background-color: #ff4d6d; /* Czerwień z color-scheme.png */
+  background-color: #ff4d6d;
   color: white;
   border: none;
   padding: 0.8rem 2rem;
@@ -96,7 +94,7 @@ body {
 }
 
 .cta-button:hover {
-  background-color: #e6395e; /* Nieco ciemniejsza czerwień */
+  background-color: #e6395e;
   transform: translateY(-2px);
 }
 
@@ -105,8 +103,8 @@ body {
 }
 
 .cta-button.secondary {
-  background-color: #5ac8fa; /* Niebieski z color-scheme.png */
-  margin-left: 1rem; /* odstęp między przyciskami */
+  background-color: #5ac8fa;
+  margin-left: 1rem;
 }
 
 .cta-button.secondary:hover {
@@ -120,25 +118,27 @@ body {
   align-items: center;
   box-sizing: border-box;
   padding: 0 2rem;
-  gap: 5rem; /* Odstęp między tekstem a obrazkiem na desktopie */
+  gap: 5rem;
 }
 
 .hero-section::before {
-  background: rgba(0, 0, 0, 0.2); /* Lżejsza nakładka dla sekcji hero */
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .hero-content {
   flex: 1;
   text-align: left;
   padding-left: 5vw;
-  margin-bottom: 0; /* Upewnij się, że nie ma dodatkowych marginesów kolidujących z gap */
+  margin-bottom: 0;
 }
 
 .app-logo-hero {
-  width: clamp(150px, 20vw, 250px);
-  height: auto;
-  margin-bottom: 1rem;
+  max-width: 100%; /* Obrazek nigdy nie będzie szerszy niż jego kontener */
+  height: auto;    /* Zachowuje proporcje */
+  width: clamp(250px, 35vw, 450px); /* Proponowane wymiary dla logo */
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
 }
+
 
 .hero-image-container {
   flex: 1;
@@ -148,7 +148,7 @@ body {
   padding-right: 10vw;
 }
 
-.app-mockup {
+.app-mockup { /* Ta klasa była już w kodzie, ale dla innego elementu/makiety */
   max-width: clamp(250px, 40vw, 400px);
   height: auto;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
@@ -230,7 +230,7 @@ body {
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
-  margin: 0; /* Usunięto margin, aby gap kontrolował odstępy */
+  margin: 0;
 }
 
 .text-block {
@@ -266,12 +266,12 @@ body {
 
 .team-section .text-container {
   max-width: 1000px;
-  margin: 0 auto;
   width: 100%;
+  margin: 0 auto;
 }
 
 .team-section h2 {
-  margin-bottom: 0; /* Usunięto margin-bottom, ponieważ gap to kontroluje */
+  margin-bottom: 0;
 }
 
 .team-image {
@@ -308,13 +308,16 @@ body {
   .hero-content {
     text-align: center;
     padding: 0;
-    /* margin-bottom: 2rem; Jeśli ten margin wciąż powoduje problemy z ucinaniem na małych ekranach,
-       możesz go tutaj usunąć, polegając w pełni na gap z .hero-section. */
   }
 
   .hero-image-container {
     padding: 0;
     justify-content: center;
+  }
+
+  /* Specyficzne dostosowanie dla obrazka logo na bardzo małych ekranach */
+  .app-logo-hero {
+    width: clamp(180px, 50vw, 250px); /* Mniejszy rozmiar dla smartfonów */
   }
 
   .cta-button.secondary {

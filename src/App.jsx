@@ -37,7 +37,7 @@ function App() {
                 </div>
                 <div className="hero-image-container">
                     <Slide direction="right" triggerOnce>
-                        <img src={darkLogo} alt="Duet App Logo"  />
+                        <img src={darkLogo} alt="Duet App Logo" className="app-logo-hero" />
                     </Slide>
 
                 </div>
